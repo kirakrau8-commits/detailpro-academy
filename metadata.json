@@ -1,0 +1,8 @@
+{
+  "name": "DetailPro Academy",
+  "description": "Plataforma educacional especializada em estética automotiva e detalhamento automotivo profissional, do nível iniciante às técnicas avançadas e gestão de negócios.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
