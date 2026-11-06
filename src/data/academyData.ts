@@ -571,7 +571,7 @@ export const INITIAL_COURSES: Course[] = [
               description: 'Slot preparado para vídeo sobre mapeamento em mícrons e escolha da combinação boina + composto.',
               duration: '22:40',
               category: 'Polimento e correção de pintura',
-              youtubeUrl: '',
+              youtubeUrl: 'https://www.youtube.com/watch?v=0jR8soZYSxA',
             },
             materials: [
               {
@@ -622,7 +622,7 @@ export const INITIAL_COURSES: Course[] = [
               description: 'Slot preparado para vídeo técnico demonstrando velocidade de braço, passadas cruzadas e limpeza de boina.',
               duration: '26:10',
               category: 'Polimento e correção de pintura',
-              youtubeUrl: '',
+              youtubeUrl: 'https://www.youtube.com/watch?v=L0L3Vx-WD1o',
             },
             materials: [
               {
@@ -705,7 +705,7 @@ export const INITIAL_COURSES: Course[] = [
               description: 'Slot preparado para vídeo demonstrando aplicação, remoção e teste de repelência à água.',
               duration: '16:20',
               category: 'Proteção e vitrificação',
-              youtubeUrl: '',
+              youtubeUrl: 'https://www.youtube.com/watch?v=Yle10pgcnj8',
             },
             materials: [
               {
@@ -763,7 +763,7 @@ export const INITIAL_COURSES: Course[] = [
               description: 'Slot preparado para vídeo sobre preparação com REVELAX, aplicação cruzada e inspeção de High Spots.',
               duration: '28:00',
               category: 'Proteção e vitrificação',
-              youtubeUrl: '',
+              youtubeUrl: 'https://www.youtube.com/watch?v=nbKBV9nBAMY',
             },
             materials: [
               {
