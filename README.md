@@ -81,3 +81,20 @@ npm run preview
 ```
 
 O conteúdo gerado em `dist/` pode ser publicado diretamente em serviços de hospedagem estática como **GitHub Pages, Vercel, Netlify ou Cloudflare Pages**.
+
+## 5. Videoaulas incorporadas
+
+Quatro vídeos públicos foram vinculados diretamente às aulas correspondentes na sala de aula. O player usa o domínio de incorporação com privacidade aprimorada do YouTube (`youtube-nocookie.com`):
+
+- V-Paint Vonixx — vitrificação da pintura: https://www.youtube.com/watch?v=nbKBV9nBAMY
+- SiO2 Pro Vonixx — manutenção de coating: https://www.youtube.com/watch?v=Yle10pgcnj8
+- Vonixx V10/V20/V30 — passo a passo de polimento: https://www.youtube.com/watch?v=L0L3Vx-WD1o
+- Vonixx V10/V20/V30 — teste da linha de polidores: https://www.youtube.com/watch?v=0jR8soZYSxA
+
+Os links ficam nos dados de cada aula em `src/data/academyData.ts`. O aluno também pode substituir ou remover o vídeo pelo componente da sala de aula, e a alteração fica salva localmente.
+
+## 6. Biblioteca Vonixx
+
+A biblioteca de produtos já está estruturada em fichas pesquisáveis por nome, etapa e tipo, com uso técnico, superfícies, diluição e EPIs quando essas informações estão disponíveis. Consulte sempre o rótulo e a FDS/FISPQ atualizados do fabricante antes de executar qualquer procedimento.
+
+O PDF completo do catálogo Vonixx 2024 ainda precisa ser adicionado à raiz do repositório como `catalogo-vonixx-2024.pdf` para habilitar a visualização/download do documento dentro do site. A biblioteca de fichas não substitui o catálogo oficial.
