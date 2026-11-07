@@ -158,7 +158,7 @@ export const AppShell: React.FC<AppShellProps> = ({
             }}
             className="font-display text-sm sm:text-lg font-extrabold tracking-tight text-white whitespace-nowrap shrink-0"
           >
-            DETAIL<span className="text-[#E5B85C]">PRO</span> ACADEMY
+            ESTÉTICA <span className="text-[#E5B85C]">DETALHAMENTO</span>. EDU
           </a>
         </div>
 
@@ -299,7 +299,7 @@ export const AppShell: React.FC<AppShellProps> = ({
               <div className="space-y-5">
                 <div className="flex items-center justify-between pb-3 border-b border-slate-800">
                   <span className="font-display text-sm font-bold text-white">
-                    Áreas da Academia (11)
+                    Áreas da Plataforma (11)
                   </span>
                   <button
                     type="button"
