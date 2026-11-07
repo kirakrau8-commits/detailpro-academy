@@ -31,6 +31,7 @@ import { ResourcesPage } from './pages/ResourcesPage';
 import { EquipmentPage } from './pages/EquipmentPage';
 import { AccessoriesPage } from './pages/AccessoriesPage';
 import { InspectionPage } from './pages/InspectionPage';
+import { CRMPage } from './pages/CRMPage';
 import { GlossaryPage } from './pages/GlossaryPage';
 import { QuizzesPage } from './pages/QuizzesPage';
 import { ProgressPage } from './pages/ProgressPage';
@@ -353,6 +354,8 @@ export function App() {
       {activePage === 'accessories' && <AccessoriesPage />}
 
       {activePage === 'inspection' && <InspectionPage />}
+
+      {activePage === 'crm' && <CRMPage />}
 
       {activePage === 'glossary' && <GlossaryPage />}
 
