@@ -10,6 +10,7 @@ export type PageView =
   | 'equipment'
   | 'accessories'
   | 'inspection'
+  | 'crm'
   | 'glossary'
   | 'quizzes'
   | 'progress'
