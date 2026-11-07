@@ -21,14 +21,15 @@ Plataforma educacional de estética automotiva e detalhamento profissional. Este
 - CRM local para cadastro de clientes, veículos e ordens de serviço
 - Operações locais com estoque, movimentações, financeiro gerencial e agenda de serviços
 - Relatórios gerenciais com receitas, despesas, ticket médio, serviços concluídos, estoque e exportação CSV
-- Backup completo em JSON e restauração de progresso, CRM, estoque, financeiro e agenda
+- Backup completo em JSON e restauração de progresso, CRM, estoque, financeiro, agenda e conteúdos próprios
 - Gerenciador local para cadastrar produtos e procedimentos e publicá-los nas bibliotecas
 - Biblioteca de apostilas técnicas com capítulos, imagens por URL HTTPS, tópicos, checklists, editor próprio e impressão/exportação pelo navegador em PDF
 - Enciclopédia interativa de procedimentos (6 guias iniciais)
 - Calculadora de custo e orçamento de serviços
 - Central pesquisável de PDFs e referências técnicas
 - Glossário técnico
-- Avaliações e questionários
+- Avaliações e questionários com histórico de tentativas e gabarito comentado
+- Central de certificados internos: liberação automática após concluir todas as aulas e aprovação na avaliação vinculada, com impressão em PDF
 - Perfil, configurações e área administrativa demonstrativa
 
 ## Biblioteca de produtos
