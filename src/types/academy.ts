@@ -6,6 +6,7 @@ export type PageView =
   | 'products'
   | 'procedures'
   | 'calculator'
+  | 'resources'
   | 'glossary'
   | 'quizzes'
   | 'progress'
