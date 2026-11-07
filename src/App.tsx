@@ -35,6 +35,7 @@ import { CRMPage } from './pages/CRMPage';
 import { OperationsPage } from './pages/OperationsPage';
 import { ReportsPage } from './pages/ReportsPage';
 import { ContentManagerPage } from './pages/ContentManagerPage';
+import { ManualsPage } from './pages/ManualsPage';
 import { GlossaryPage } from './pages/GlossaryPage';
 import { QuizzesPage } from './pages/QuizzesPage';
 import { ProgressPage } from './pages/ProgressPage';
@@ -365,6 +366,8 @@ export function App() {
       {activePage === 'reports' && <ReportsPage />}
 
       {activePage === 'content' && <ContentManagerPage />}
+
+      {activePage === 'manuals' && <ManualsPage />}
 
       {activePage === 'glossary' && <GlossaryPage />}
 
