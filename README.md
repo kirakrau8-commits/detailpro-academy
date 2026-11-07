@@ -22,6 +22,7 @@ Plataforma educacional de estética automotiva e detalhamento profissional. Este
 - Operações locais com estoque, movimentações, financeiro gerencial e agenda de serviços
 - Relatórios gerenciais com receitas, despesas, ticket médio, serviços concluídos, estoque e exportação CSV
 - Backup completo em JSON e restauração de progresso, CRM, estoque, financeiro e agenda
+- Gerenciador local para cadastrar produtos e procedimentos e publicá-los nas bibliotecas
 - Enciclopédia interativa de procedimentos (6 guias iniciais)
 - Calculadora de custo e orçamento de serviços
 - Central pesquisável de PDFs e referências técnicas
