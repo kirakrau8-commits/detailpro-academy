@@ -13,6 +13,7 @@ export type PageView =
   | 'crm'
   | 'operations'
   | 'reports'
+  | 'content'
   | 'glossary'
   | 'quizzes'
   | 'progress'
