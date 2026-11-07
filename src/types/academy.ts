@@ -15,6 +15,7 @@ export type PageView =
   | 'reports'
   | 'content'
   | 'manuals'
+  | 'certificates'
   | 'glossary'
   | 'quizzes'
   | 'progress'
