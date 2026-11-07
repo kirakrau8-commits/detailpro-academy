@@ -53,7 +53,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <span className="text-[#E5B85C]">engenharia de superfície.</span>
             </h1>
             <p className="text-base text-slate-300 leading-relaxed max-w-2xl">
-              A <strong className="text-white font-semibold">DetailPro Academy</strong> é uma
+              A <strong className="text-white font-semibold">Estética Detalhamento. edu</strong> é uma
               plataforma educacional estruturada em 10 áreas técnicas — da química aplicada e
               lavagem segura à correção micrométrica de verniz, vitrificação cerâmica e gestão
               financeira de estúdios.
@@ -75,6 +75,13 @@ export const HomePage: React.FC<HomePageProps> = ({
               className="px-5 py-3 text-sm font-semibold bg-[#161F2C] text-slate-100 border border-slate-700 rounded-xl hover:bg-[#1E293B] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
             >
               Abrir Painel do Aluno
+            </button>
+            <button
+              type="button"
+              onClick={() => onNavigate('procedures')}
+              className="px-5 py-3 text-sm font-semibold bg-[#161F2C] text-[#E5B85C] border border-slate-700 rounded-xl hover:bg-[#1E293B] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            >
+              Enciclopédia de Procedimentos
             </button>
           </div>
 
