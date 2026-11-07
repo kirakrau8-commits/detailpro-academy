@@ -1481,6 +1481,32 @@ export const INITIAL_COURSES: Course[] = [
   },
 ];
 
+
+const CURATED_LESSON_VIDEOS: Partial<Record<CourseCategory, { url: string; title: string; source: string }>> = {
+  'Lavagem técnica': { url: 'https://www.youtube.com/watch?v=-jlWwSAhTsk', title: 'Lavagem com técnica dos dois baldes e Snow Foam', source: 'FlatOut Brasil' },
+  'Descontaminação da pintura': { url: 'https://www.youtube.com/watch?v=zFECnHXy150', title: 'Descontaminação de pintura com Clay Bar', source: 'Percepcar' },
+  'Polimento e correção de pintura': { url: 'https://www.youtube.com/watch?v=hRkZpwsSyQ0', title: 'Polimento automotivo: corte, refino e lustro', source: 'Miromi TV' },
+  'Proteção e vitrificação': { url: 'https://www.youtube.com/watch?v=UjAmffZqbw0', title: 'Vitrificação automotiva passo a passo', source: 'Politec Polidores' },
+  'Higienização interna': { url: 'https://www.youtube.com/watch?v=D4t3CFygPoM', title: 'Higienização interna de bancos e estofados', source: 'Zaplus Car' },
+  'Limpeza de couro, plásticos e tecidos': { url: 'https://www.youtube.com/watch?v=D4t3CFygPoM', title: 'Higienização interna de bancos e estofados', source: 'Zaplus Car' },
+};
+
+INITIAL_COURSES.forEach((course) => {
+  course.modules.forEach((module) => {
+    module.lessons.forEach((lesson) => {
+      if (lesson.videoConfig.youtubeUrl) return;
+      const curated = CURATED_LESSON_VIDEOS[course.category];
+      if (curated) {
+        lesson.videoConfig.youtubeUrl = curated.url;
+        lesson.videoConfig.title = curated.title;
+        lesson.videoConfig.description = 'Videoaula pública de referência. Fonte: ' + curated.source + '. Assista como demonstração complementar e siga sempre a ficha técnica e os procedimentos de segurança aplicáveis.';
+      } else {
+        lesson.videoConfig.description = 'Ainda não há uma incorporação individual verificada para esta aula. Use o atalho de busca para localizar demonstrações públicas específicas do assunto.';
+      }
+    });
+  });
+});
+
 export const PRODUCT_LIBRARY: ProductItem[] = [
   {
     id: 'prod-vfloc',
