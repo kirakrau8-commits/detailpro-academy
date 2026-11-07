@@ -78,7 +78,14 @@ export const HomePage: React.FC<HomePageProps> = ({
             </button>
             <button
               type="button"
-              onClick={() => onNavigate('resources')}
+              onClick={() => onNavigate('equipment')}
+              className="px-5 py-3 text-sm font-semibold bg-[#161F2C] text-[#38BDF8] border border-slate-700 rounded-xl hover:bg-[#1E293B] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            >
+              Guia de Equipamentos
+            </button>
+            <button
+              type="button"
+              onClick={() => onNavigate('resources')
               className="px-5 py-3 text-sm font-semibold bg-[#161F2C] text-[#E5B85C] border border-slate-700 rounded-xl hover:bg-[#1E293B] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
             >
               Biblioteca de PDFs
