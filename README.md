@@ -18,6 +18,7 @@ Plataforma educacional de estética automotiva e detalhamento profissional. Este
 - Guia de máquinas e equipamentos com critérios de compra, operação e manutenção
 - Guia de boinas, microfibras, escovas, aplicadores, luvas e acessórios
 - Ficha interativa de inspeção, recepção e entrega de veículos
+- CRM local para cadastro de clientes, veículos e ordens de serviço
 - Enciclopédia interativa de procedimentos (6 guias iniciais)
 - Calculadora de custo e orçamento de serviços
 - Central pesquisável de PDFs e referências técnicas
