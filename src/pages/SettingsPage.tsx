@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   Save,
   RotateCcw,
   Download,
   CheckCircle2,
   AlertTriangle,
+  Upload,
+  Database,
 } from 'lucide-react';
 import {
   AcademyPersistedState,
@@ -31,6 +33,9 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
   const [savedNotice, setSavedNotice] = useState(false);
   const [confirmResetOpen, setConfirmResetOpen] = useState(false);
   const [resetDoneNotice, setResetDoneNotice] = useState(false);
+  const [backupNotice, setBackupNotice] = useState('');
+  const [backupError, setBackupError] = useState('');
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleSaveProfile = (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,16 +49,62 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
   };
 
   const handleExportJson = () => {
-    const dataStr = JSON.stringify(persistedState, null, 2);
-    const blob = new Blob([dataStr], { type: 'application/json' });
+    const backup = {
+      app: 'Estética Detalhamento. edu',
+      formatVersion: 2,
+      exportedAt: new Date().toISOString(),
+      data: {
+        academy: persistedState,
+        crm: readLocalData('estetica_detalhamento_crm_v1'),
+        operations: readLocalData('estetica_detalhamento_operations_v1'),
+      },
+    };
+    const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'detailpro-academy-backup.json';
+    link.download = 'estetica-detalhamento-backup.json';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
+    setBackupError('');
+    setBackupNotice('Backup completo exportado. Guarde o arquivo em outro local.');
+  };
+
+  const readLocalData = (key: string) => {
+    try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : null; }
+    catch { return null; }
+  };
+
+  const handleImportJson = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    setBackupError('');
+    setBackupNotice('');
+    try {
+      const parsed = JSON.parse(await file.text());
+      const payload = parsed?.formatVersion === 2 ? parsed.data : { academy: parsed };
+      const academy = payload?.academy;
+      const isAcademyState = academy && Array.isArray(academy.completedLessonIds)
+        && Array.isArray(academy.favoriteCourseIds) && Array.isArray(academy.quizAttempts)
+        && academy.studentProfile && typeof academy.studentProfile === 'object';
+      if (!isAcademyState) throw new Error('O arquivo não contém um backup válido da plataforma.');
+      if (!window.confirm('A restauração substituirá os dados atuais deste navegador. Deseja continuar?')) return;
+      localStorage.setItem('detailpro_academy_state_v2', JSON.stringify(academy));
+      if (payload.crm && Array.isArray(payload.crm.customers) && Array.isArray(payload.crm.vehicles) && Array.isArray(payload.crm.orders)) {
+        localStorage.setItem('estetica_detalhamento_crm_v1', JSON.stringify(payload.crm));
+      }
+      if (payload.operations && Array.isArray(payload.operations.stock) && Array.isArray(payload.operations.movements) && Array.isArray(payload.operations.finance) && Array.isArray(payload.operations.appointments)) {
+        localStorage.setItem('estetica_detalhamento_operations_v1', JSON.stringify(payload.operations));
+      }
+      setBackupNotice('Backup restaurado. A página será atualizada para carregar os dados.');
+      window.setTimeout(() => window.location.reload(), 700);
+    } catch (error) {
+      setBackupError(error instanceof Error ? error.message : 'Não foi possível ler o arquivo de backup.');
+    } finally {
+      event.target.value = '';
+    }
   };
 
   const handleConfirmReset = () => {
@@ -74,7 +125,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
           Configurações da Plataforma
         </h1>
         <p className="text-sm text-slate-400">
-          Ajuste suas metas de estudo no perfil demonstrativo, exporte um backup dos seus dados ou restaure o estado inicial.
+          Ajuste o perfil, faça cópias completas dos dados de gestão e restaure backups anteriores.
         </p>
       </div>
 
@@ -248,12 +299,13 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
         <div className="lg:col-span-5 space-y-6">
           <div className="bg-[#111720] border border-slate-800 rounded-xl p-6 space-y-4">
             <h2 className="font-display text-base font-bold text-white">
-              Exportação de Dados Locais (Backup JSON)
+              Backup e restauração de dados
             </h2>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Baixe um arquivo JSON contendo suas aulas concluídas, notas de estudo,
-              histórico de avaliações e cursos personalizados criados na Área Administrativa.
+              Baixe um backup completo com progresso de estudos, perfil, cursos personalizados, clientes, veículos, ordens de serviço, estoque, movimentações, financeiro e agenda.
             </p>
+            {backupNotice && <p role="status" className="rounded-lg border border-emerald-800/50 bg-emerald-950/20 p-3 text-xs text-emerald-300">{backupNotice}</p>}
+            {backupError && <p role="alert" className="rounded-lg border border-rose-800/50 bg-rose-950/20 p-3 text-xs text-rose-300">{backupError}</p>}
             <button
               type="button"
               onClick={handleExportJson}
@@ -262,6 +314,11 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
               <Download className="w-4 h-4 text-[#38BDF8]" />
               <span>Exportar Backup (JSON)</span>
             </button>
+            <input ref={fileInputRef} type="file" accept="application/json,.json" onChange={handleImportJson} className="hidden" />
+            <button type="button" onClick={() => fileInputRef.current?.click()} className="w-full py-2.5 px-4 text-xs font-semibold bg-[#161F2C] hover:bg-[#1E293B] text-slate-100 border border-slate-700 rounded-lg inline-flex items-center justify-center gap-2 cursor-pointer">
+              <Upload className="w-4 h-4 text-[#E5B85C]" /> Restaurar Backup JSON
+            </button>
+            <p className="text-[11px] leading-5 text-slate-500">Aceita backups completos desta plataforma e backups antigos somente do progresso de aprendizagem. A restauração substitui os dados correspondentes existentes neste navegador.</p>
           </div>
 
           <div className="bg-[#111720] border border-slate-800 rounded-xl p-6 space-y-4">
