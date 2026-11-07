@@ -28,6 +28,7 @@ import { ProductsPage } from './pages/ProductsPage';
 import { ProceduresPage } from './pages/ProceduresPage';
 import { ServiceCalculatorPage } from './pages/ServiceCalculatorPage';
 import { ResourcesPage } from './pages/ResourcesPage';
+import { EquipmentPage } from './pages/EquipmentPage';
 import { GlossaryPage } from './pages/GlossaryPage';
 import { QuizzesPage } from './pages/QuizzesPage';
 import { ProgressPage } from './pages/ProgressPage';
@@ -344,6 +345,8 @@ export function App() {
       {activePage === 'calculator' && <ServiceCalculatorPage />}
 
       {activePage === 'resources' && <ResourcesPage />}
+
+      {activePage === 'equipment' && <EquipmentPage />}
 
       {activePage === 'glossary' && <GlossaryPage />}
 
