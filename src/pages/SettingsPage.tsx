@@ -6,7 +6,6 @@ import {
   CheckCircle2,
   AlertTriangle,
   Upload,
-  Database,
 } from 'lucide-react';
 import {
   AcademyPersistedState,
