@@ -17,6 +17,7 @@ Plataforma educacional de estética automotiva e detalhamento profissional. Este
 - Biblioteca de produtos multi-marcas (Vonixx e Easytech, com links de fonte oficial)
 - Guia de máquinas e equipamentos com critérios de compra, operação e manutenção
 - Guia de boinas, microfibras, escovas, aplicadores, luvas e acessórios
+- Ficha interativa de inspeção, recepção e entrega de veículos
 - Enciclopédia interativa de procedimentos (6 guias iniciais)
 - Calculadora de custo e orçamento de serviços
 - Central pesquisável de PDFs e referências técnicas
