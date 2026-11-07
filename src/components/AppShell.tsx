@@ -364,7 +364,7 @@ export const AppShell: React.FC<AppShellProps> = ({
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
             <span className="font-display font-bold text-slate-200">
-              DETAILPRO ACADEMY
+              ESTÉTICA DETALHAMENTO. EDU
             </span>{' '}
             · Educação Profissional em Estética e Detalhamento Automotivo.
           </div>
