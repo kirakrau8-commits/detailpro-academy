@@ -6,6 +6,7 @@ import {
   PlaySquare,
   Package,
   ClipboardList,
+  Calculator,
   BookMarked,
   ClipboardCheck,
   TrendingUp,
@@ -79,43 +80,50 @@ export const NAV_ITEMS: NavItem[] = [
     group: 'Biblioteca & Prática',
   },
   {
+    id: 'calculator',
+    label: '7. Calculadora de Serviços',
+    shortLabel: 'Orçamentos',
+    icon: Calculator,
+    group: 'Biblioteca & Prática',
+  },
+  {
     id: 'glossary',
-    label: '7. Glossário Técnico',
+    label: '8. Glossário Técnico',
     shortLabel: 'Glossário',
     icon: BookMarked,
     group: 'Biblioteca & Prática',
   },
   {
     id: 'quizzes',
-    label: '8. Avaliações e Questionários',
+    label: '9. Avaliações e Questionários',
     shortLabel: 'Avaliações',
     icon: ClipboardCheck,
     group: 'Biblioteca & Prática',
   },
   {
     id: 'progress',
-    label: '9. Progresso de Aprendizagem',
+    label: '10. Progresso de Aprendizagem',
     shortLabel: 'Progresso',
     icon: TrendingUp,
     group: 'Aluno & Sistema',
   },
   {
     id: 'profile',
-    label: '10. Perfil Demonstrativo',
+    label: '11. Perfil Demonstrativo',
     shortLabel: 'Perfil Demo',
     icon: UserCheck,
     group: 'Aluno & Sistema',
   },
   {
     id: 'settings',
-    label: '11. Configurações',
+    label: '12. Configurações',
     shortLabel: 'Configurações',
     icon: Settings,
     group: 'Aluno & Sistema',
   },
   {
     id: 'admin',
-    label: '12. Área Administrativa',
+    label: '13. Área Administrativa',
     shortLabel: 'Administração',
     icon: Sliders,
     group: 'Aluno & Sistema',
@@ -213,7 +221,16 @@ export const AppShell: React.FC<AppShellProps> = ({
           </button>
           <button
             type="button"
-            onClick={() => handleSelectPage('quizzes')}
+            onClick={() => handleSelectPage('calculator')}
+            className={`hover:text-white transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+              activePage === 'calculator' ? 'text-[#E5B85C] underline underline-offset-8' : ''
+            }`}
+          >
+            Orçamentos
+          </button>
+          <button
+            type="button"
+            onClick={() => handleSelectPage('quizzes')
             className={`hover:text-white transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
               activePage === 'quizzes' ? 'text-[#E5B85C] underline underline-offset-8' : ''
             }`}
@@ -307,7 +324,7 @@ export const AppShell: React.FC<AppShellProps> = ({
               <div className="space-y-5">
                 <div className="flex items-center justify-between pb-3 border-b border-slate-800">
                   <span className="font-display text-sm font-bold text-white">
-                    Áreas da Plataforma (12)
+                    Áreas da Plataforma (13)
                   </span>
                   <button
                     type="button"
