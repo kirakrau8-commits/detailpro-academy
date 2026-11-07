@@ -5,6 +5,7 @@ export type PageView =
   | 'classroom'
   | 'products'
   | 'procedures'
+  | 'calculator'
   | 'glossary'
   | 'quizzes'
   | 'progress'
