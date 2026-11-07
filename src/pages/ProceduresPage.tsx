@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Search, ShieldCheck, ClipboardList, ChevronDown, CarFront, Droplets, Sparkles, Gauge } from 'lucide-react';
 
 type Procedure = {
@@ -92,6 +92,10 @@ const PROCEDURES: Procedure[] = [
 const CATEGORIES = ['Todas', ...Array.from(new Set(PROCEDURES.map((item) => item.category)))];
 
 export const ProceduresPage: React.FC = () => {
+  const [customProcedures, setCustomProcedures] = useState<Procedure[]>(() => { try { return JSON.parse(localStorage.getItem('estetica_detalhamento_custom_procedures_v1') || '[]'); } catch { return []; } });
+  useEffect(() => { const sync = () => { try { setCustomProcedures(JSON.parse(localStorage.getItem('estetica_detalhamento_custom_procedures_v1') || '[]')); } catch { setCustomProcedures([]); } }; window.addEventListener('focus', sync); return () => window.removeEventListener('focus', sync); }, []);
+  const allProcedures = [...PROCEDURES, ...customProcedures];
+  const categories = ['Todas', ...Array.from(new Set(allProcedures.map(x => x.category)))];
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('Todas');
   const [expanded, setExpanded] = useState<string | null>('wash');
@@ -99,7 +103,7 @@ export const ProceduresPage: React.FC = () => {
   const filtered = useMemo(() => PROCEDURES.filter((item) => {
     const haystack = [item.title, item.category, item.objective, item.level, ...item.tools].join(' ').toLowerCase();
     return haystack.includes(query.toLowerCase()) && (category === 'Todas' || item.category === category);
-  }), [query, category]);
+  }), [query, category, customProcedures]);
 
   return (
     <div className="space-y-8">
@@ -108,7 +112,7 @@ export const ProceduresPage: React.FC = () => {
         <h1 className="mt-3 font-display text-3xl font-extrabold text-white sm:text-4xl">Enciclopédia de detalhamento</h1>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-300">Procedimentos organizados por objetivo, ferramentas, sequência de execução, critérios de qualidade e pontos de atenção. Use como material de estudo e adapte cada serviço ao veículo, ao substrato e às instruções dos fabricantes.</p>
         <div className="mt-5 grid gap-3 sm:grid-cols-3">
-          <div className="rounded-xl border border-slate-700 bg-black/20 p-4"><ClipboardList className="mb-2 text-[#E5B85C]"/><p className="text-2xl font-bold text-white">{PROCEDURES.length}</p><p className="text-xs text-slate-400">Guias de procedimento</p></div>
+          <div className="rounded-xl border border-slate-700 bg-black/20 p-4"><ClipboardList className="mb-2 text-[#E5B85C]"/><p className="text-2xl font-bold text-white">{allProcedures.length}</p><p className="text-xs text-slate-400">Guias de procedimento</p></div>
           <div className="rounded-xl border border-slate-700 bg-black/20 p-4"><ShieldCheck className="mb-2 text-emerald-400"/><p className="text-sm font-bold text-white">Segurança integrada</p><p className="text-xs text-slate-400">Alertas e critérios em cada guia</p></div>
           <div className="rounded-xl border border-slate-700 bg-black/20 p-4"><Gauge className="mb-2 text-sky-400"/><p className="text-sm font-bold text-white">Do básico ao avançado</p><p className="text-xs text-slate-400">Níveis de execução identificados</p></div>
         </div>
@@ -121,7 +125,7 @@ export const ProceduresPage: React.FC = () => {
           <input id="procedure-search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar lavagem, polimento, tecido, coating..." className="w-full rounded-lg border border-slate-700 bg-[#0B0F14] py-3 pl-10 pr-4 text-sm text-white outline-none focus:border-[#E5B85C]"/>
         </div>
         <div className="flex flex-wrap gap-2">
-          {CATEGORIES.map((item) => <button key={item} type="button" onClick={() => setCategory(item)} className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${category === item ? 'border-[#E5B85C] bg-[#E5B85C] text-[#111318]' : 'border-slate-700 text-slate-400 hover:text-white'}`}>{item}</button>)}
+          {categories.map((item) => <button key={item} type="button" onClick={() => setCategory(item)} className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${category === item ? 'border-[#E5B85C] bg-[#E5B85C] text-[#111318]' : 'border-slate-700 text-slate-400 hover:text-white'}`}>{item}</button>)}
         </div>
         <p className="text-xs text-slate-500">{filtered.length} procedimento(s) encontrado(s).</p>
       </section>
