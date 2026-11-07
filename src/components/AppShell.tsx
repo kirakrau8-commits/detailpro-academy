@@ -8,6 +8,7 @@ import {
   ClipboardList,
   Calculator,
   FileText,
+  Wrench,
   BookMarked,
   ClipboardCheck,
   TrendingUp,
@@ -95,43 +96,50 @@ export const NAV_ITEMS: NavItem[] = [
     group: 'Biblioteca & Prática',
   },
   {
+    id: 'equipment',
+    label: '9. Máquinas e Equipamentos',
+    shortLabel: 'Equipamentos',
+    icon: Wrench,
+    group: 'Biblioteca & Prática',
+  },
+  {
     id: 'glossary',
-    label: '9. Glossário Técnico',
+    label: '10. Glossário Técnico',
     shortLabel: 'Glossário',
     icon: BookMarked,
     group: 'Biblioteca & Prática',
   },
   {
     id: 'quizzes',
-    label: '10. Avaliações e Questionários',
+    label: '11. Avaliações e Questionários',
     shortLabel: 'Avaliações',
     icon: ClipboardCheck,
     group: 'Biblioteca & Prática',
   },
   {
     id: 'progress',
-    label: '11. Progresso de Aprendizagem',
+    label: '12. Progresso de Aprendizagem',
     shortLabel: 'Progresso',
     icon: TrendingUp,
     group: 'Aluno & Sistema',
   },
   {
     id: 'profile',
-    label: '12. Perfil Demonstrativo',
+    label: '13. Perfil Demonstrativo',
     shortLabel: 'Perfil Demo',
     icon: UserCheck,
     group: 'Aluno & Sistema',
   },
   {
     id: 'settings',
-    label: '13. Configurações',
+    label: '14. Configurações',
     shortLabel: 'Configurações',
     icon: Settings,
     group: 'Aluno & Sistema',
   },
   {
     id: 'admin',
-    label: '14. Área Administrativa',
+    label: '15. Área Administrativa',
     shortLabel: 'Administração',
     icon: Sliders,
     group: 'Aluno & Sistema',
@@ -332,7 +340,7 @@ export const AppShell: React.FC<AppShellProps> = ({
               <div className="space-y-5">
                 <div className="flex items-center justify-between pb-3 border-b border-slate-800">
                   <span className="font-display text-sm font-bold text-white">
-                    Áreas da Plataforma (14)
+                    Áreas da Plataforma (15)
                   </span>
                   <button
                     type="button"
