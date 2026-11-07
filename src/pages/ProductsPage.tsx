@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Search, Beaker, ShieldCheck, ExternalLink, FileText, Calculator, Droplets, Package, Sparkles } from 'lucide-react';
 
 type CatalogProduct = {
@@ -45,6 +45,11 @@ const CATEGORIES = ['Todas', ...Array.from(new Set(CATALOG_PRODUCTS.map((p) => p
 const BRANDS = ['Todas', ...Array.from(new Set(CATALOG_PRODUCTS.map((p) => p.brand || 'Vonixx')))];
 
 export const ProductsPage: React.FC = () => {
+  const [customProducts, setCustomProducts] = useState<CatalogProduct[]>(() => { try { return JSON.parse(localStorage.getItem('estetica_detalhamento_custom_products_v1') || '[]'); } catch { return []; } });
+  useEffect(() => { const sync = () => { try { setCustomProducts(JSON.parse(localStorage.getItem('estetica_detalhamento_custom_products_v1') || '[]')); } catch { setCustomProducts([]); } }; window.addEventListener('focus', sync); return () => window.removeEventListener('focus', sync); }, []);
+  const allProducts = [...CATALOG_PRODUCTS, ...customProducts.map(x => ({...x, stage: 'Cadastro personalizado', source: 'Cadastro local'}))];
+  const categories = ['Todas', ...Array.from(new Set(allProducts.map(x => x.category)))];
+  const brands = ['Todas', ...Array.from(new Set(allProducts.map(x => x.brand || 'Vonixx')))];
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('Todas');
   const [brand, setBrand] = useState('Todas');
@@ -55,7 +60,7 @@ export const ProductsPage: React.FC = () => {
     const text = [p.name, p.category, p.description, p.use, p.stage].join(' ').toLowerCase();
     const productBrand = p.brand || 'Vonixx';
     return text.includes(query.toLowerCase()) && (category === 'Todas' || p.category === category) && (brand === 'Todas' || productBrand === brand);
-  }), [query, category, brand]);
+  }), [query, category, brand, customProducts]);
 
   const totalVolume = Math.max(0, Number(volume) || 0);
   const parts = Math.max(1, Number(ratio) || 1);
@@ -76,8 +81,8 @@ export const ProductsPage: React.FC = () => {
       </section>
 
       <section className="grid gap-4 md:grid-cols-3">
-        <div className="rounded-xl border border-slate-800 bg-[#111720] p-5"><Package className="mb-3 text-[#E5B85C]"/><p className="text-2xl font-bold text-white">{CATALOG_PRODUCTS.length}</p><p className="text-xs text-slate-400">Fichas iniciais catalogadas</p></div>
-        <div className="rounded-xl border border-slate-800 bg-[#111720] p-5"><Sparkles className="mb-3 text-[#E5B85C]"/><p className="text-2xl font-bold text-white">{CATEGORIES.length - 1}</p><p className="text-xs text-slate-400">Categorias de produtos</p></div>
+        <div className="rounded-xl border border-slate-800 bg-[#111720] p-5"><Package className="mb-3 text-[#E5B85C]"/><p className="text-2xl font-bold text-white">{allProducts.length}</p><p className="text-xs text-slate-400">Fichas iniciais catalogadas</p></div>
+        <div className="rounded-xl border border-slate-800 bg-[#111720] p-5"><Sparkles className="mb-3 text-[#E5B85C]"/><p className="text-2xl font-bold text-white">{categories.length - 1}</p><p className="text-xs text-slate-400">Categorias de produtos</p></div>
         <div className="rounded-xl border border-slate-800 bg-[#111720] p-5"><Calculator className="mb-3 text-[#E5B85C]"/><p className="text-2xl font-bold text-white">1:X</p><p className="text-xs text-slate-400">Calculadora de diluição incluída</p></div>
       </section>
 
@@ -85,9 +90,9 @@ export const ProductsPage: React.FC = () => {
         <div className="flex items-center gap-2"><Search className="text-[#E5B85C]" size={18}/><h2 className="font-display text-lg font-bold text-white">Encontrar um produto</h2></div>
         <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Buscar V-FLOC, couro, pneus, coating, polimento..." className="w-full rounded-lg border border-slate-700 bg-[#0B0F14] px-4 py-3 text-sm text-white outline-none focus:border-[#E5B85C]"/>
         <div className="flex flex-wrap gap-2">
-          {CATEGORIES.map((item) => <button key={item} onClick={() => setCategory(item)} className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${category === item ? 'border-[#E5B85C] bg-[#E5B85C] text-[#111318]' : 'border-slate-700 text-slate-400 hover:text-white'}`}>{item}</button>)}
+          {categories.map((item) => <button key={item} onClick={() => setCategory(item)} className={`rounded-full border px-3 py-1.5 text-xs font-semibold ${category === item ? 'border-[#E5B85C] bg-[#E5B85C] text-[#111318]' : 'border-slate-700 text-slate-400 hover:text-white'}`}>{item}</button>)}
         </div>
-        <div className="flex flex-wrap items-center gap-2"><label className="text-xs text-slate-400" htmlFor="product-brand-filter">Marca</label><select id="product-brand-filter" value={brand} onChange={(e) => setBrand(e.target.value)} className="rounded-lg border border-slate-700 bg-[#0B0F14] px-3 py-2 text-xs text-slate-200">{BRANDS.map((item) => <option key={item} value={item}>{item}</option>)}</select><span className="text-xs text-slate-500">{products.length} resultado(s) • {BRANDS.length - 1} marca(s) catalogada(s)</span></div>
+        <div className="flex flex-wrap items-center gap-2"><label className="text-xs text-slate-400" htmlFor="product-brand-filter">Marca</label><select id="product-brand-filter" value={brand} onChange={(e) => setBrand(e.target.value)} className="rounded-lg border border-slate-700 bg-[#0B0F14] px-3 py-2 text-xs text-slate-200">{brands.map((item) => <option key={item} value={item}>{item}</option>)}</select><span className="text-xs text-slate-500">{products.length} resultado(s) • {brands.length - 1} marca(s) catalogada(s)</span></div>
       </section>
 
       <section className="grid gap-4 lg:grid-cols-2">
