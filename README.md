@@ -1,100 +1,72 @@
-# DetailPro Academy
+# Estética Detalhamento. edu
 
-Plataforma educacional especializada em **estética automotiva e detalhamento automotivo profissional**, construída com **React 19, TypeScript, Vite e Tailwind CSS v4**.
+Plataforma educacional de estética automotiva e detalhamento profissional. Este projeto evolui a base técnica do antigo DetailPro Academy e mantém o repositório **DetailPro Academy**.
 
-## 1. Arquitetura e Estrutura de Pastas
+## Identidade do produto
 
-```text
-/
-├── index.html                        # Entrada HTML com SEO e fontes (Outfit, Plus Jakarta Sans, JetBrains Mono)
-├── package.json                      # Dependências e scripts de execução, build, lint e testes
-├── tsconfig.json                     # Configuração do TypeScript
-├── vite.config.ts                    # Configuração do Vite (porta 3000)
-├── docs/
-│   └── PERFIL-DEMO.md                # Documentação do perfil demonstrativo local
-└── src/
-    ├── main.tsx                      # Bootstrap da aplicação React
-    ├── App.tsx                       # Orquestrador de navegação e estado persistido
-    ├── index.css                     # Estilos globais e tema escuro premium
-    ├── types/
-    │   └── academy.ts                # Interfaces e contratos TypeScript
-    ├── data/
-    │   └── academyData.ts            # Currículo das 10 áreas, biblioteca de insumos, glossário e avaliações
-    ├── services/
-    │   └── storageService.ts         # Persistência em localStorage pronta para futura migração de banco/Auth
-    ├── utils/
-    │   ├── academyLogic.ts           # Funções puras de cálculo de progresso, filtros e correção de avaliações
-    │   └── academyLogic.test.ts      # Testes unitários automatizados (node:test)
-    ├── components/
-    │   ├── AppShell.tsx              # Barra superior + Menu lateral das 11 áreas da plataforma
-    │   ├── CourseCard.tsx            # Card reutilizável de cursos com barra de progresso e favoritos
-    │   ├── VideoPlayerSlot.tsx       # Componente preparado para incorporação de vídeos do YouTube
-    │   └── ResilientImage.tsx        # Renderizador de imagens com fallback técnico
-    └── pages/
-        ├── HomePage.tsx              # 1. Página inicial com apresentação da academia
-        ├── DashboardPage.tsx         # 2. Painel do aluno
-        ├── CoursesPage.tsx           # 3. Área de cursos
-        ├── ClassroomPage.tsx         # 4. Área de aulas e módulos
-        ├── ProductsPage.tsx          # 5. Biblioteca de produtos e equipamentos
-        ├── GlossaryPage.tsx          # 6. Glossário técnico pesquisável
-        ├── QuizzesPage.tsx           # 7. Avaliações e questionários com pontuação
-        ├── ProgressPage.tsx          # 8. Progresso de aprendizagem e histórico
-        ├── ProfilePage.tsx           # 9. Perfil demonstrativo do aluno
-        ├── SettingsPage.tsx          # 10. Configurações e backup JSON
-        └── AdminPage.tsx             # 11. Área administrativa preparada para expansão
-```
+- Nome exibido: **Estética Detalhamento. edu**
+- Objetivo: reunir formação técnica, procedimentos, biblioteca de produtos, equipamentos, documentos PDF, glossário, avaliações e ferramentas de apoio para detailers.
+- Stack: React 19, TypeScript, Vite e Tailwind CSS v4.
+- Tema: escuro, com destaque dourado e interface responsiva.
 
-## 2. Como Instalar as Dependências
+## Áreas já existentes
 
-Certifique-se de possuir o **Node.js (v20 ou v22+)** instalado e execute na raiz do projeto:
+- Início e apresentação
+- Painel do aluno e progresso de aprendizagem
+- Cursos, módulos e sala de aula
+- Biblioteca de produtos e equipamentos
+- Glossário técnico
+- Avaliações e questionários
+- Perfil, configurações e área administrativa demonstrativa
+
+## Biblioteca de produtos
+
+A página de produtos foi ampliada com uma primeira coleção de fichas baseadas no **Catálogo Vonixx 2024**, incluindo lavagem, limpeza pesada, estofados, tecidos, couro, plásticos, pneus, polimento e ceramic coating.
+
+A biblioteca inclui:
+- Busca por nome, categoria e aplicação.
+- Fichas resumidas com finalidade, apresentação e etapa de uso.
+- Calculadora matemática de diluição na convenção total da Vonixx (ex.: 1:5 = 1 parte de produto em 5 partes totais).
+- Acesso ao catálogo PDF e aos canais de consulta de documentação de segurança.
+
+### Fontes e documentos
+
+- [Catálogo Vonixx 2024 (PDF)](https://vonixx.com.br/wp-content/uploads/2024/09/catalogo-vonixx-2024_reduzido.pdf)
+- [Site oficial Vonixx](https://www.vonixx.com.br/)
+- [Índice de FDS Vonixx](https://fds.fispq.org/fabricante/vonixx/)
+
+**Importante:** o catálogo 2024 é uma referência histórica. As fichas resumidas não substituem rótulos, fichas técnicas ou FDS atuais. Diluições e aplicações devem ser confirmadas na documentação vigente do produto específico. Não misture produtos químicos.
+
+## Executar localmente
+
+Requisitos: Node.js 20 ou 22+.
 
 ```bash
 npm install
-```
-
-## 3. Como Executar Localmente
-
-Para iniciar o servidor de desenvolvimento na porta `3000`:
-
-```bash
 npm run dev
 ```
 
-Para executar os testes unitários da lógica da plataforma:
+O servidor de desenvolvimento inicia na porta 3000.
+
+## Verificações
 
 ```bash
+npm run lint
 npm test
-```
-
-## 4. Como Compilar e Publicar o Site
-
-Para gerar o pacote otimizado de produção na pasta `dist/`:
-
-```bash
 npm run build
 ```
 
-Para pré-visualizar a versão de produção localmente:
+## Próximas expansões planejadas
 
-```bash
-npm run preview
-```
+1. Biblioteca completa de produtos por fabricante, com versão e fonte documental por ficha.
+2. Central de PDFs: apostilas, manuais, checklists, fichas técnicas e FDS.
+3. Enciclopédia de procedimentos passo a passo, com ferramentas, consumíveis, riscos e critérios de qualidade.
+4. Calculadoras de diluição, custo por serviço, consumo de produto e orçamento.
+5. Catálogo de equipamentos e comparador técnico de marcas.
+6. Glossário ampliado com busca e termos relacionados.
+7. Área administrativa para cadastrar e revisar cursos, produtos, documentos e imagens.
+8. Autenticação, banco de dados e sincronização em nuvem para substituir o perfil demonstrativo local.
 
-O conteúdo gerado em `dist/` pode ser publicado diretamente em serviços de hospedagem estática como **GitHub Pages, Vercel, Netlify ou Cloudflare Pages**.
+## Observação de escopo
 
-## 5. Videoaulas incorporadas
-
-Quatro vídeos públicos foram vinculados diretamente às aulas correspondentes na sala de aula. O player usa o domínio de incorporação com privacidade aprimorada do YouTube (`youtube-nocookie.com`):
-
-- V-Paint Vonixx — vitrificação da pintura: https://www.youtube.com/watch?v=nbKBV9nBAMY
-- SiO2 Pro Vonixx — manutenção de coating: https://www.youtube.com/watch?v=Yle10pgcnj8
-- Vonixx V10/V20/V30 — passo a passo de polimento: https://www.youtube.com/watch?v=L0L3Vx-WD1o
-- Vonixx V10/V20/V30 — teste da linha de polidores: https://www.youtube.com/watch?v=0jR8soZYSxA
-
-Os links ficam nos dados de cada aula em `src/data/academyData.ts`. O aluno também pode substituir ou remover o vídeo pelo componente da sala de aula, e a alteração fica salva localmente.
-
-## 6. Biblioteca Vonixx
-
-A biblioteca de produtos já está estruturada em fichas pesquisáveis por nome, etapa e tipo, com uso técnico, superfícies, diluição e EPIs quando essas informações estão disponíveis. Consulte sempre o rótulo e a FDS/FISPQ atualizados do fabricante antes de executar qualquer procedimento.
-
-O PDF completo do catálogo Vonixx 2024 ainda precisa ser adicionado à raiz do repositório como `catalogo-vonixx-2024.pdf` para habilitar a visualização/download do documento dentro do site. A biblioteca de fichas não substitui o catálogo oficial.
+O projeto ainda é uma plataforma em desenvolvimento. A área administrativa atual é demonstrativa e o armazenamento de progresso existente é local no navegador. Login real, pagamentos, upload persistente de PDFs e gestão multiusuário exigem implementação de backend e serviços próprios.
