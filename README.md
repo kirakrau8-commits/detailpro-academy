@@ -20,6 +20,7 @@ Plataforma educacional de estética automotiva e detalhamento profissional. Este
 - Ficha interativa de inspeção, recepção e entrega de veículos
 - CRM local para cadastro de clientes, veículos e ordens de serviço
 - Operações locais com estoque, movimentações, financeiro gerencial e agenda de serviços
+- Relatórios gerenciais com receitas, despesas, ticket médio, serviços concluídos, estoque e exportação CSV
 - Enciclopédia interativa de procedimentos (6 guias iniciais)
 - Calculadora de custo e orçamento de serviços
 - Central pesquisável de PDFs e referências técnicas
@@ -79,7 +80,8 @@ npm run build
 5. Expandir os guias de equipamentos e acessórios para catálogo comparativo por marca, modelo e ficha técnica.
 6. Ampliar glossário, cursos, avaliações e materiais para download.
 7. Evoluir a área administrativa para cadastro e revisão de conteúdos.
-8. Implementar autenticação, banco de dados, upload persistente e sincronização em nuvem.
+8. Evoluir relatórios com gráficos históricos e exportações mais completas.
+9. Implementar autenticação, banco de dados, upload persistente e sincronização em nuvem.
 
 ## Observação de escopo
 
