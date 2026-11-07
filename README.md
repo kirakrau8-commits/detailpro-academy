@@ -23,6 +23,7 @@ Plataforma educacional de estética automotiva e detalhamento profissional. Este
 - Relatórios gerenciais com receitas, despesas, ticket médio, serviços concluídos, estoque e exportação CSV
 - Backup completo em JSON e restauração de progresso, CRM, estoque, financeiro e agenda
 - Gerenciador local para cadastrar produtos e procedimentos e publicá-los nas bibliotecas
+- Biblioteca de apostilas técnicas com capítulos, imagens por URL HTTPS, tópicos, checklists, editor próprio e impressão/exportação pelo navegador em PDF
 - Enciclopédia interativa de procedimentos (6 guias iniciais)
 - Calculadora de custo e orçamento de serviços
 - Central pesquisável de PDFs e referências técnicas
@@ -76,7 +77,7 @@ npm run build
 ## Próximas expansões planejadas
 
 1. Ampliar a biblioteca multi-marcas com fichas documentadas, versão, imagens autorizadas e fonte por produto.
-2. Incluir PDFs próprios: apostilas, manuais, checklists e documentos autorizados.
+2. Expandir a biblioteca de apostilas, manuais, checklists e documentos técnicos autorizados.
 3. Expandir a enciclopédia com mais procedimentos e critérios técnicos revisados.
 4. Adicionar cálculo de consumo, diluição avançada e simulador de orçamento com histórico.
 5. Expandir os guias de equipamentos e acessórios para catálogo comparativo por marca, modelo e ficha técnica.
