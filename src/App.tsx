@@ -26,6 +26,7 @@ import { CoursesPage } from './pages/CoursesPage';
 import { ClassroomPage } from './pages/ClassroomPage';
 import { ProductsPage } from './pages/ProductsPage';
 import { ProceduresPage } from './pages/ProceduresPage';
+import { ServiceCalculatorPage } from './pages/ServiceCalculatorPage';
 import { GlossaryPage } from './pages/GlossaryPage';
 import { QuizzesPage } from './pages/QuizzesPage';
 import { ProgressPage } from './pages/ProgressPage';
@@ -338,6 +339,8 @@ export function App() {
       {activePage === 'products' && <ProductsPage />}
 
       {activePage === 'procedures' && <ProceduresPage />}
+
+      {activePage === 'calculator' && <ServiceCalculatorPage />}
 
       {activePage === 'glossary' && <GlossaryPage />}
 
