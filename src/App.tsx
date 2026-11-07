@@ -36,6 +36,7 @@ import { OperationsPage } from './pages/OperationsPage';
 import { ReportsPage } from './pages/ReportsPage';
 import { ContentManagerPage } from './pages/ContentManagerPage';
 import { ManualsPage } from './pages/ManualsPage';
+import { CertificatesPage } from './pages/CertificatesPage';
 import { GlossaryPage } from './pages/GlossaryPage';
 import { QuizzesPage } from './pages/QuizzesPage';
 import { ProgressPage } from './pages/ProgressPage';
@@ -368,6 +369,8 @@ export function App() {
       {activePage === 'content' && <ContentManagerPage />}
 
       {activePage === 'manuals' && <ManualsPage />}
+
+      {activePage === 'certificates' && <CertificatesPage courses={allCourses} completedLessonIds={state.completedLessonIds} quizAttempts={state.quizAttempts} studentName={state.studentProfile.displayName} />}
 
       {activePage === 'glossary' && <GlossaryPage />}
 
