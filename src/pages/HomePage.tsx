@@ -78,7 +78,14 @@ export const HomePage: React.FC<HomePageProps> = ({
             </button>
             <button
               type="button"
-              onClick={() => onNavigate('procedures')}
+              onClick={() => onNavigate('calculator')}
+              className="px-5 py-3 text-sm font-semibold bg-[#161F2C] text-[#38BDF8] border border-slate-700 rounded-xl hover:bg-[#1E293B] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            >
+              Calculadora de Orçamentos
+            </button>
+            <button
+              type="button"
+              onClick={() => onNavigate('procedures')
               className="px-5 py-3 text-sm font-semibold bg-[#161F2C] text-[#E5B85C] border border-slate-700 rounded-xl hover:bg-[#1E293B] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
             >
               Enciclopédia de Procedimentos
