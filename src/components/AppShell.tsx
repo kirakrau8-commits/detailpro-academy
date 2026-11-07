@@ -5,6 +5,7 @@ import {
   BookOpen,
   PlaySquare,
   Package,
+  ClipboardList,
   BookMarked,
   ClipboardCheck,
   TrendingUp,
@@ -71,43 +72,50 @@ export const NAV_ITEMS: NavItem[] = [
     group: 'Biblioteca & Prática',
   },
   {
+    id: 'procedures',
+    label: '6. Enciclopédia de Procedimentos',
+    shortLabel: 'Procedimentos',
+    icon: ClipboardList,
+    group: 'Biblioteca & Prática',
+  },
+  {
     id: 'glossary',
-    label: '6. Glossário Técnico',
+    label: '7. Glossário Técnico',
     shortLabel: 'Glossário',
     icon: BookMarked,
     group: 'Biblioteca & Prática',
   },
   {
     id: 'quizzes',
-    label: '7. Avaliações e Questionários',
+    label: '8. Avaliações e Questionários',
     shortLabel: 'Avaliações',
     icon: ClipboardCheck,
     group: 'Biblioteca & Prática',
   },
   {
     id: 'progress',
-    label: '8. Progresso de Aprendizagem',
+    label: '9. Progresso de Aprendizagem',
     shortLabel: 'Progresso',
     icon: TrendingUp,
     group: 'Aluno & Sistema',
   },
   {
     id: 'profile',
-    label: '9. Perfil Demonstrativo',
+    label: '10. Perfil Demonstrativo',
     shortLabel: 'Perfil Demo',
     icon: UserCheck,
     group: 'Aluno & Sistema',
   },
   {
     id: 'settings',
-    label: '10. Configurações',
+    label: '11. Configurações',
     shortLabel: 'Configurações',
     icon: Settings,
     group: 'Aluno & Sistema',
   },
   {
     id: 'admin',
-    label: '11. Área Administrativa',
+    label: '12. Área Administrativa',
     shortLabel: 'Administração',
     icon: Sliders,
     group: 'Aluno & Sistema',
@@ -299,7 +307,7 @@ export const AppShell: React.FC<AppShellProps> = ({
               <div className="space-y-5">
                 <div className="flex items-center justify-between pb-3 border-b border-slate-800">
                   <span className="font-display text-sm font-bold text-white">
-                    Áreas da Plataforma (11)
+                    Áreas da Plataforma (12)
                   </span>
                   <button
                     type="button"
