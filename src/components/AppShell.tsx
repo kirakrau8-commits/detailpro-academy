@@ -10,6 +10,7 @@ import {
   FileText,
   Wrench,
   Layers,
+  ClipboardCheck,
   BookMarked,
   ClipboardCheck,
   TrendingUp,
@@ -111,43 +112,50 @@ export const NAV_ITEMS: NavItem[] = [
     group: 'Biblioteca & Prática',
   },
   {
+    id: 'inspection',
+    label: '11. Inspeção e Entrega',
+    shortLabel: 'Inspeção',
+    icon: ClipboardCheck,
+    group: 'Biblioteca & Prática',
+  },
+  {
     id: 'glossary',
-    label: '11. Glossário Técnico',
+    label: '12. Glossário Técnico',
     shortLabel: 'Glossário',
     icon: BookMarked,
     group: 'Biblioteca & Prática',
   },
   {
     id: 'quizzes',
-    label: '12. Avaliações e Questionários',
+    label: '13. Avaliações e Questionários',
     shortLabel: 'Avaliações',
     icon: ClipboardCheck,
     group: 'Biblioteca & Prática',
   },
   {
     id: 'progress',
-    label: '13. Progresso de Aprendizagem',
+    label: '14. Progresso de Aprendizagem',
     shortLabel: 'Progresso',
     icon: TrendingUp,
     group: 'Aluno & Sistema',
   },
   {
     id: 'profile',
-    label: '14. Perfil Demonstrativo',
+    label: '15. Perfil Demonstrativo',
     shortLabel: 'Perfil Demo',
     icon: UserCheck,
     group: 'Aluno & Sistema',
   },
   {
     id: 'settings',
-    label: '15. Configurações',
+    label: '16. Configurações',
     shortLabel: 'Configurações',
     icon: Settings,
     group: 'Aluno & Sistema',
   },
   {
     id: 'admin',
-    label: '16. Área Administrativa',
+    label: '17. Área Administrativa',
     shortLabel: 'Administração',
     icon: Sliders,
     group: 'Aluno & Sistema',
@@ -348,7 +356,7 @@ export const AppShell: React.FC<AppShellProps> = ({
               <div className="space-y-5">
                 <div className="flex items-center justify-between pb-3 border-b border-slate-800">
                   <span className="font-display text-sm font-bold text-white">
-                    Áreas da Plataforma (16)
+                    Áreas da Plataforma (17)
                   </span>
                   <button
                     type="button"
