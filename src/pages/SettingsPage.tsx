@@ -50,12 +50,15 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
   const handleExportJson = () => {
     const backup = {
       app: 'Estética Detalhamento. edu',
-      formatVersion: 2,
+      formatVersion: 3,
       exportedAt: new Date().toISOString(),
       data: {
         academy: persistedState,
         crm: readLocalData('estetica_detalhamento_crm_v1'),
         operations: readLocalData('estetica_detalhamento_operations_v1'),
+        customProducts: readLocalData('estetica_detalhamento_custom_products_v1'),
+        customProcedures: readLocalData('estetica_detalhamento_custom_procedures_v1'),
+        manuals: readLocalData('estetica_detalhamento_manuals_v1'),
       },
     };
     const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
@@ -83,7 +86,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
     setBackupNotice('');
     try {
       const parsed = JSON.parse(await file.text());
-      const payload = parsed?.formatVersion === 2 ? parsed.data : { academy: parsed };
+      const payload = parsed?.formatVersion >= 2 ? parsed.data : { academy: parsed };
       const academy = payload?.academy;
       const isAcademyState = academy && Array.isArray(academy.completedLessonIds)
         && Array.isArray(academy.favoriteCourseIds) && Array.isArray(academy.quizAttempts)
@@ -97,6 +100,9 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
       if (payload.operations && Array.isArray(payload.operations.stock) && Array.isArray(payload.operations.movements) && Array.isArray(payload.operations.finance) && Array.isArray(payload.operations.appointments)) {
         localStorage.setItem('estetica_detalhamento_operations_v1', JSON.stringify(payload.operations));
       }
+      if (Array.isArray(payload.customProducts)) localStorage.setItem('estetica_detalhamento_custom_products_v1', JSON.stringify(payload.customProducts));
+      if (Array.isArray(payload.customProcedures)) localStorage.setItem('estetica_detalhamento_custom_procedures_v1', JSON.stringify(payload.customProcedures));
+      if (Array.isArray(payload.manuals)) localStorage.setItem('estetica_detalhamento_manuals_v1', JSON.stringify(payload.manuals));
       setBackupNotice('Backup restaurado. A página será atualizada para carregar os dados.');
       window.setTimeout(() => window.location.reload(), 700);
     } catch (error) {
@@ -301,7 +307,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({
               Backup e restauração de dados
             </h2>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Baixe um backup completo com progresso de estudos, perfil, cursos personalizados, clientes, veículos, ordens de serviço, estoque, movimentações, financeiro e agenda.
+              Baixe um backup completo com progresso de estudos, perfil, cursos personalizados, clientes, veículos, ordens de serviço, estoque, movimentações, financeiro, agenda, produtos e procedimentos próprios e apostilas técnicas.
             </p>
             {backupNotice && <p role="status" className="rounded-lg border border-emerald-800/50 bg-emerald-950/20 p-3 text-xs text-emerald-300">{backupNotice}</p>}
             {backupError && <p role="alert" className="rounded-lg border border-rose-800/50 bg-rose-950/20 p-3 text-xs text-rose-300">{backupError}</p>}
