@@ -100,10 +100,10 @@ export const ProceduresPage: React.FC = () => {
   const [category, setCategory] = useState('Todas');
   const [expanded, setExpanded] = useState<string | null>('wash');
 
-  const filtered = useMemo(() => PROCEDURES.filter((item) => {
+  const filtered = useMemo(() => allProcedures.filter((item) => {
     const haystack = [item.title, item.category, item.objective, item.level, ...item.tools].join(' ').toLowerCase();
     return haystack.includes(query.toLowerCase()) && (category === 'Todas' || item.category === category);
-  }), [query, category, customProcedures]);
+  }), [query, category, allProcedures]);
 
   return (
     <div className="space-y-8">

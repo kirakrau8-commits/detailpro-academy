@@ -56,11 +56,11 @@ export const ProductsPage: React.FC = () => {
   const [ratio, setRatio] = useState('10');
   const [volume, setVolume] = useState('500');
 
-  const products = useMemo(() => CATALOG_PRODUCTS.filter((p) => {
+  const products = useMemo(() => allProducts.filter((p) => {
     const text = [p.name, p.category, p.description, p.use, p.stage].join(' ').toLowerCase();
     const productBrand = p.brand || 'Vonixx';
     return text.includes(query.toLowerCase()) && (category === 'Todas' || p.category === category) && (brand === 'Todas' || productBrand === brand);
-  }), [query, category, brand, customProducts]);
+  }), [query, category, brand, allProducts]);
 
   const totalVolume = Math.max(0, Number(volume) || 0);
   const parts = Math.max(1, Number(ratio) || 1);

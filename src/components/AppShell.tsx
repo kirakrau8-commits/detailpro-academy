@@ -293,7 +293,7 @@ export const AppShell: React.FC<AppShellProps> = ({
           </button>
           <button
             type="button"
-            onClick={() => handleSelectPage('quizzes')
+            onClick={() => handleSelectPage('quizzes')}
             className={`hover:text-white transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
               activePage === 'quizzes' ? 'text-[#E5B85C] underline underline-offset-8' : ''
             }`}
@@ -387,7 +387,7 @@ export const AppShell: React.FC<AppShellProps> = ({
               <div className="space-y-5">
                 <div className="flex items-center justify-between pb-3 border-b border-slate-800">
                   <span className="font-display text-sm font-bold text-white">
-                    Áreas da Plataforma (17)
+                    Áreas da Plataforma ({NAV_ITEMS.length})
                   </span>
                   <button
                     type="button"
