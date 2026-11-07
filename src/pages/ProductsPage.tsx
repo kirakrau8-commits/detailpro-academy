@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from 'react';
 import { Search, Beaker, ShieldCheck, ExternalLink, FileText, Calculator, Droplets, Package, Sparkles } from 'lucide-react';
-import { COURSE_CATEGORIES } from '../data/academyData';
 
 type CatalogProduct = {
   name: string;
