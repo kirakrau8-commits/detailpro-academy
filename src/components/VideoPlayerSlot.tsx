@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Play, Video, CheckCircle2, Trash2, AlertCircle } from 'lucide-react';
+import { Play, Video, CheckCircle2, Trash2, AlertCircle, ExternalLink } from 'lucide-react';
 import { VideoSlotConfig } from '../types/academy';
 import { extractYouTubeId } from '../utils/academyLogic';
 
@@ -28,6 +28,7 @@ export const VideoPlayerSlot: React.FC<VideoPlayerSlotProps> = ({
   }, [lessonId, savedUrl, config.youtubeUrl]);
 
   const videoId = extractYouTubeId(activeUrl || '');
+  const searchUrl = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(config.title + ' estética automotiva ' + config.category);
 
   const handleApplyVideo = (e: React.FormEvent) => {
     e.preventDefault();
@@ -114,7 +115,7 @@ export const VideoPlayerSlot: React.FC<VideoPlayerSlotProps> = ({
               {config.description} Nenhum link fictício ou aleatório é pré-carregado.
               Insira abaixo a URL oficial do YouTube quando desejar incorporar o vídeo desta aula.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-slate-400 font-mono tabular-nums">
+            <a href={searchUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-[#E5B85C] px-4 py-2.5 text-xs font-bold text-[#111318] hover:bg-amber-300">\n              <ExternalLink className="w-3.5 h-3.5" /> Buscar vídeo desta aula no YouTube\n            </a>\n            <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-slate-400 font-mono tabular-nums">
               <span>Categoria: {config.category}</span>
               <span aria-hidden="true">·</span>
               <span>Tempo estimado: {config.duration}</span>
