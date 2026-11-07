@@ -16,6 +16,7 @@ Plataforma educacional de estética automotiva e detalhamento profissional. Este
 - Cursos, módulos e sala de aula
 - Biblioteca de produtos multi-marcas (Vonixx e Easytech, com links de fonte oficial)
 - Guia de máquinas e equipamentos com critérios de compra, operação e manutenção
+- Guia de boinas, microfibras, escovas, aplicadores, luvas e acessórios
 - Enciclopédia interativa de procedimentos (6 guias iniciais)
 - Calculadora de custo e orçamento de serviços
 - Central pesquisável de PDFs e referências técnicas
@@ -72,7 +73,7 @@ npm run build
 2. Incluir PDFs próprios: apostilas, manuais, checklists e documentos autorizados.
 3. Expandir a enciclopédia com mais procedimentos e critérios técnicos revisados.
 4. Adicionar cálculo de consumo, diluição avançada e simulador de orçamento com histórico.
-5. Expandir o guia de equipamentos para catálogo comparativo por marca, modelo e ficha técnica.
+5. Expandir os guias de equipamentos e acessórios para catálogo comparativo por marca, modelo e ficha técnica.
 6. Ampliar glossário, cursos, avaliações e materiais para download.
 7. Evoluir a área administrativa para cadastro e revisão de conteúdos.
 8. Implementar autenticação, banco de dados, upload persistente e sincronização em nuvem.
