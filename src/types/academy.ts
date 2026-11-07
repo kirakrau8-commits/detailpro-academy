@@ -8,6 +8,7 @@ export type PageView =
   | 'calculator'
   | 'resources'
   | 'equipment'
+  | 'accessories'
   | 'glossary'
   | 'quizzes'
   | 'progress'
