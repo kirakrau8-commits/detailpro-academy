@@ -9,6 +9,7 @@ import {
   Calculator,
   FileText,
   Wrench,
+  Layers,
   BookMarked,
   ClipboardCheck,
   TrendingUp,
@@ -103,43 +104,50 @@ export const NAV_ITEMS: NavItem[] = [
     group: 'Biblioteca & Prática',
   },
   {
+    id: 'accessories',
+    label: '10. Boinas e Acessórios',
+    shortLabel: 'Acessórios',
+    icon: Layers,
+    group: 'Biblioteca & Prática',
+  },
+  {
     id: 'glossary',
-    label: '10. Glossário Técnico',
+    label: '11. Glossário Técnico',
     shortLabel: 'Glossário',
     icon: BookMarked,
     group: 'Biblioteca & Prática',
   },
   {
     id: 'quizzes',
-    label: '11. Avaliações e Questionários',
+    label: '12. Avaliações e Questionários',
     shortLabel: 'Avaliações',
     icon: ClipboardCheck,
     group: 'Biblioteca & Prática',
   },
   {
     id: 'progress',
-    label: '12. Progresso de Aprendizagem',
+    label: '13. Progresso de Aprendizagem',
     shortLabel: 'Progresso',
     icon: TrendingUp,
     group: 'Aluno & Sistema',
   },
   {
     id: 'profile',
-    label: '13. Perfil Demonstrativo',
+    label: '14. Perfil Demonstrativo',
     shortLabel: 'Perfil Demo',
     icon: UserCheck,
     group: 'Aluno & Sistema',
   },
   {
     id: 'settings',
-    label: '14. Configurações',
+    label: '15. Configurações',
     shortLabel: 'Configurações',
     icon: Settings,
     group: 'Aluno & Sistema',
   },
   {
     id: 'admin',
-    label: '15. Área Administrativa',
+    label: '16. Área Administrativa',
     shortLabel: 'Administração',
     icon: Sliders,
     group: 'Aluno & Sistema',
@@ -340,7 +348,7 @@ export const AppShell: React.FC<AppShellProps> = ({
               <div className="space-y-5">
                 <div className="flex items-center justify-between pb-3 border-b border-slate-800">
                   <span className="font-display text-sm font-bold text-white">
-                    Áreas da Plataforma (15)
+                    Áreas da Plataforma (16)
                   </span>
                   <button
                     type="button"
