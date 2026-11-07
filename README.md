@@ -14,7 +14,8 @@ Plataforma educacional de estética automotiva e detalhamento profissional. Este
 - Início e apresentação
 - Painel do aluno e progresso de aprendizagem
 - Cursos, módulos e sala de aula
-- Biblioteca de produtos e equipamentos (primeira coleção Vonixx 2024)
+- Biblioteca de produtos multi-marcas (Vonixx e Easytech, com links de fonte oficial)
+- Guia de máquinas e equipamentos com critérios de compra, operação e manutenção
 - Enciclopédia interativa de procedimentos (6 guias iniciais)
 - Calculadora de custo e orçamento de serviços
 - Central pesquisável de PDFs e referências técnicas
@@ -24,11 +25,12 @@ Plataforma educacional de estética automotiva e detalhamento profissional. Este
 
 ## Biblioteca de produtos
 
-A página de produtos foi ampliada com uma primeira coleção de fichas baseadas no **Catálogo Vonixx 2024**, incluindo lavagem, limpeza pesada, estofados, tecidos, couro, plásticos, pneus, polimento e ceramic coating.
+A página de produtos reúne fichas iniciais Vonixx baseadas no **Catálogo Vonixx 2024** e produtos Easytech consultados nas páginas oficiais, incluindo lavagem, limpeza pesada, descontaminação ferrosa, estofados, couro, plásticos, pneus, polimento e proteção.
 
 A biblioteca inclui:
 - Busca por nome, categoria e aplicação.
-- Fichas resumidas com finalidade, apresentação e etapa de uso.
+- Fichas resumidas com finalidade, apresentação, marca, aplicação e fonte externa por produto quando disponível.
+- Filtro por fabricante e categoria.
 - Calculadora matemática de diluição na convenção total da Vonixx (ex.: 1:5 = 1 parte de produto em 5 partes totais).
 - Acesso ao catálogo PDF e aos canais de consulta de documentação de segurança.
 
@@ -66,11 +68,11 @@ npm run build
 
 ## Próximas expansões planejadas
 
-1. Ampliar a biblioteca multi-marcas com fichas documentadas, versão e fonte por produto.
+1. Ampliar a biblioteca multi-marcas com fichas documentadas, versão, imagens autorizadas e fonte por produto.
 2. Incluir PDFs próprios: apostilas, manuais, checklists e documentos autorizados.
 3. Expandir a enciclopédia com mais procedimentos e critérios técnicos revisados.
 4. Adicionar cálculo de consumo, diluição avançada e simulador de orçamento com histórico.
-5. Criar catálogo comparativo de máquinas, acessórios e equipamentos.
+5. Expandir o guia de equipamentos para catálogo comparativo por marca, modelo e ficha técnica.
 6. Ampliar glossário, cursos, avaliações e materiais para download.
 7. Evoluir a área administrativa para cadastro e revisão de conteúdos.
 8. Implementar autenticação, banco de dados, upload persistente e sincronização em nuvem.
