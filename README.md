@@ -21,6 +21,7 @@ Plataforma educacional de estética automotiva e detalhamento profissional. Este
 - CRM local para cadastro de clientes, veículos e ordens de serviço
 - Operações locais com estoque, movimentações, financeiro gerencial e agenda de serviços
 - Relatórios gerenciais com receitas, despesas, ticket médio, serviços concluídos, estoque e exportação CSV
+- Backup completo em JSON e restauração de progresso, CRM, estoque, financeiro e agenda
 - Enciclopédia interativa de procedimentos (6 guias iniciais)
 - Calculadora de custo e orçamento de serviços
 - Central pesquisável de PDFs e referências técnicas
@@ -81,7 +82,8 @@ npm run build
 6. Ampliar glossário, cursos, avaliações e materiais para download.
 7. Evoluir a área administrativa para cadastro e revisão de conteúdos.
 8. Evoluir relatórios com gráficos históricos e exportações mais completas.
-9. Implementar autenticação, banco de dados, upload persistente e sincronização em nuvem.
+9. Migrar armazenamento local para banco de dados com backup automático e sincronização.
+10. Implementar autenticação, upload persistente e gestão multiusuário.
 
 ## Observação de escopo
 
